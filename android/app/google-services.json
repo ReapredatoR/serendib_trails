@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "579493321709",
+    "project_id": "serendib-trails",
+    "storage_bucket": "serendib-trails.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579493321709:android:97d972d9264b41ab1aa5e4",
+        "android_client_info": {
+          "package_name": "com.example.serendib_trails"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_ONFo-wvGFqqfaM933pSZ2dtb54BaYWA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
