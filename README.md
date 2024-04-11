@@ -49,7 +49,7 @@ This project is licensed under the MIT License. See the LICENSE file for details
 
 ### Contact
 
-- **Project Maintainer:** Malinga Rajapaksha (0606malingarjapaksha@gmail.com)
+- **Project Maintainer:** Malinga Rajapaksha (0606malingarajapaksha@gmail.com)
 - **Main Technologies:** Flutter, Firebase, OpenStreetMap
 
 **Let's build a fantastic hiking app together!**
