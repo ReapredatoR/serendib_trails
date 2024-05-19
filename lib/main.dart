@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'main_page.dart'; // Import your main page file
+import 'screens/home_screen.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(SerendibTrailsApp());
+}
 
-class MyApp extends StatelessWidget {
+class SerendibTrailsApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Serendib Trails', // Title of your app
+      title: 'Serendib Trails',
       theme: ThemeData(
-        primarySwatch: Colors.green, // Example theme color
+        primarySwatch: Colors.green,
       ),
-      home: MainPage(), // Set the MainPage as the initial screen
+      home: HomeScreen(),
     );
   }
 }
