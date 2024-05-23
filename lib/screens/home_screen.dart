@@ -1,4 +1,3 @@
-// lib/screens/home_screen.dart
 import 'package:flutter/material.dart';
 import 'map_screen.dart';
 import 'trail_list_screen.dart';
@@ -28,7 +27,27 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Serendib Trails'),
+        title: Row(
+          children: [
+            Padding(
+              padding: EdgeInsets.all(8.0),
+              child: Image.asset(
+                'lib/images/Logo.png', // Change this to your logo path
+                height: 30,
+                width: 30,
+                fit: BoxFit.contain,
+              ),
+            ),
+            Text(
+              'Serendib Trails',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+        backgroundColor: Colors.green,
       ),
       body: _widgetOptions.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
