@@ -18,8 +18,16 @@ class Trail {
   });
 }
 
-class TrailListScreen extends StatelessWidget {
-  final List<Trail> trails = [
+class TrailListScreen extends StatefulWidget {
+  @override
+  _TrailListScreenState createState() => _TrailListScreenState();
+}
+
+class _TrailListScreenState extends State<TrailListScreen>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  final List<Trail> _topTrails = [
     Trail(
       name: "Adam's Peak",
       rating: 4.8,
@@ -99,9 +107,25 @@ class TrailListScreen extends StatelessWidget {
       time: "2-3 hours",
       difficulty: "Moderate",
       additionalInfo: "Similar views to World's End, less crowded",
-    ),
-    // Add other top trails here
+    )
   ];
+
+  final List<Trail> _trendingTrails = [
+    Trail(
+      name: "Ella Rock",
+      rating: 4.5,
+      length: 4,
+      time: "2-3 hours",
+      difficulty: "Moderate",
+      additionalInfo: "Panoramic views of Ella Gap, tea plantations",
+    ),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 3, vsync: this);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -109,96 +133,131 @@ class TrailListScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text('Trails List'),
         backgroundColor: Colors.white,
+        bottom: TabBar(
+          controller: _tabController,
+          indicatorColor: Colors.green, // Set indicator color to green
+          labelColor: Colors.green, // Set selected tab text color to green
+          unselectedLabelColor: Colors.black87, // Set unselected tab text color
+          tabs: [
+            Tab(text: 'Top 10 Trails'),
+            Tab(text: 'Trending Trails'),
+            Tab(text: 'Add Trail'),
+          ],
+        ),
       ),
-      body: ListView.builder(
-        itemCount: trails.length,
-        itemBuilder: (context, index) {
-          return Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-            child: ElevatedButton(
-              onPressed: () {
-                // Navigate to trail details screen
-                // You can implement this navigation here
-              },
-              style: ElevatedButton.styleFrom(
-                elevation: 4,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
-                ),
-                padding: EdgeInsets.all(16.0),
-                backgroundColor: Colors.white,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    trails[index].name,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(height: 4.0),
-                  Container(
-                    width:
-                        MediaQuery.of(context).size.width - 48, // Adjust width
-                    child: Text(
-                      trails[index].additionalInfo,
-                      maxLines: 2, // Limit to 2 lines
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.green,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 8.0),
-                  Row(
-                    children: [
-                      Icon(Icons.star, size: 16.0, color: Colors.amber),
-                      SizedBox(width: 4.0),
-                      Text(
-                        '${trails[index].rating}',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      SizedBox(width: 16.0),
-                      Icon(Icons.directions_walk,
-                          size: 16.0, color: Colors.blue),
-                      SizedBox(width: 4.0),
-                      Text(
-                        '${trails[index].length} km',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      SizedBox(width: 16.0),
-                      Icon(Icons.timer, size: 16.0, color: Colors.green),
-                      SizedBox(width: 4.0),
-                      Text(
-                        '${trails[index].time}',
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                      SizedBox(width: 16.0),
-                      Icon(Icons.terrain, size: 16.0, color: Colors.brown),
-                      SizedBox(width: 4.0),
-                      Text(
-                        trails[index].difficulty,
-                        style: TextStyle(color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          );
-        },
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          ListView.builder(
+            itemCount: _topTrails.length,
+            itemBuilder: (context, index) {
+              return _buildTrail(_topTrails[index]);
+            },
+          ),
+          ListView.builder(
+            itemCount: _trendingTrails.length,
+            itemBuilder: (context, index) {
+              return _buildTrail(_trendingTrails[index]);
+            },
+          ),
+          ListView(
+            children: <Widget>[
+              _buildAddTrailSection(),
+            ],
+          ),
+        ],
       ),
     );
   }
-}
 
-void main() {
-  runApp(MaterialApp(
-    home: TrailListScreen(),
-  ));
+  Widget _buildTrail(Trail trail) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+      child: ElevatedButton(
+        onPressed: () {
+          // Navigate to trail details screen
+          // You can implement this navigation here
+        },
+        style: ElevatedButton.styleFrom(
+          elevation: 4,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          padding: EdgeInsets.all(16.0),
+          backgroundColor: Colors.white,
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              trail.name,
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            SizedBox(height: 4.0),
+            Container(
+              width: MediaQuery.of(context).size.width - 48,
+              child: Text(
+                trail.additionalInfo,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.green, // Set text color to green
+                ),
+              ),
+            ),
+            SizedBox(height: 8.0),
+            Row(
+              children: [
+                Icon(Icons.star, size: 16.0, color: Colors.amber),
+                SizedBox(width: 4.0),
+                Text(
+                  '${trail.rating}',
+                  style: TextStyle(color: Colors.grey),
+                ),
+                SizedBox(width: 16.0),
+                Icon(Icons.directions_walk, size: 16.0, color: Colors.blue),
+                SizedBox(width: 4.0),
+                Text(
+                  '${trail.length} km',
+                  style: TextStyle(color: Colors.grey),
+                ),
+                SizedBox(width: 16.0),
+                Icon(Icons.timer, size: 16.0, color: Colors.green),
+                SizedBox(width: 4.0),
+                Text(
+                  '${trail.time}',
+                  style: TextStyle(color: Colors.grey),
+                ),
+                SizedBox(width: 16.0),
+                Icon(Icons.terrain, size: 16.0, color: Colors.brown),
+                SizedBox(width: 4.0),
+                Text(
+                  trail.difficulty,
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildAddTrailSection() {
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: ElevatedButton.icon(
+        onPressed: () {
+          // Handle adding a new trail
+        },
+        icon: Icon(Icons.add),
+        label: Text("Add a New Trail"),
+      ),
+    );
+  }
 }

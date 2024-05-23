@@ -206,8 +206,8 @@ class _CommunityScreenState extends State<CommunityScreen> {
             onTap: _onItemTapped,
             tabs: <Widget>[
               Tab(text: 'Posts'),
-              Tab(text: 'Chat with Hikers'),
-              Tab(text: 'Make a Difference'),
+              Tab(text: 'Chats'),
+              Tab(text: 'Other'),
             ],
           ),
         ),
