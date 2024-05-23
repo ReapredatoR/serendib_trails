@@ -16,16 +16,89 @@ class _CommunityScreenState extends State<CommunityScreen> {
       'comments': 45,
     },
     {
-      'image': 'lib/images/QVZkVjV3b1FkWFNpU09WRg.jpeg',
+      'image': 'lib/images/2.jpeg',
       'title': 'Exploring the Dolukanda (දොලුකන්ද)',
       'likes': 80,
       'comments': 30,
     },
     {
-      'image': 'lib/images/QVZkVjV3b1FkWFNpU09WRg.jpeg',
-      'title': 'Exploring the Knuckles Mountain Range',
+      'image': 'lib/images/3.jpg',
+      'title': 'Sunrise from the top of the Great Western!',
       'likes': 200,
       'comments': 70,
+    },
+  ];
+
+  final List<Map<String, dynamic>> _chats = [
+    {
+      'profilePic': 'lib/images/profile1.jpg',
+      'name': 'Hiker Joe',
+      'message': 'Are we meeting at the trailhead?',
+      'unreadMessages': 0,
+      'lastSeen': '2 hours ago'
+    },
+    {
+      'profilePic': 'lib/images/profile2.jpg',
+      'name': 'TrailBlazer Sue',
+      'message': 'I saw an amazing waterfall!',
+      'unreadMessages': 3,
+      'lastSeen': 'just now'
+    },
+    {
+      'profilePic': 'lib/images/profile3.jpg',
+      'name': 'Mountain Mike',
+      'message': 'When is our next hike?',
+      'unreadMessages': 1,
+      'lastSeen': '1 hour ago'
+    },
+    {
+      'profilePic': 'lib/images/profile4.jpg',
+      'name': 'Adventure Amy',
+      'message': 'Check out these photos!',
+      'unreadMessages': 0,
+      'lastSeen': '30 mins ago'
+    },
+    {
+      'profilePic': 'lib/images/profile5.jpg',
+      'name': 'Nature Nate',
+      'message': 'The trail was tough but worth it!',
+      'unreadMessages': 5,
+      'lastSeen': '10 mins ago'
+    },
+    {
+      'profilePic': 'lib/images/profile6.jpg',
+      'name': 'Hiker Hannah',
+      'message': 'I loved the sunrise view!',
+      'unreadMessages': 2,
+      'lastSeen': '3 hours ago'
+    },
+    {
+      'profilePic': 'lib/images/profile7.jpg',
+      'name': 'Wanderer Will',
+      'message': 'Anyone up for a night hike?',
+      'unreadMessages': 4,
+      'lastSeen': 'yesterday'
+    },
+    {
+      'profilePic': 'lib/images/profile8.jpg',
+      'name': 'Explorer Eva',
+      'message': 'The weather was perfect today!',
+      'unreadMessages': 0,
+      'lastSeen': '5 hours ago'
+    },
+    {
+      'profilePic': 'lib/images/profile9.jpg',
+      'name': 'Rover Rick',
+      'message': 'The trail is closed next week.',
+      'unreadMessages': 3,
+      'lastSeen': '2 days ago'
+    },
+    {
+      'profilePic': 'lib/images/profile10.jpg',
+      'name': 'Hiker Helen',
+      'message': 'Looking forward to the next adventure!',
+      'unreadMessages': 0,
+      'lastSeen': 'yesterday'
     },
   ];
 
@@ -44,7 +117,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
           Image.asset(
             post['image'],
             fit: BoxFit.cover,
-            height: 200, // Fixed height for all images
+            height: 200,
             width: double.infinity,
           ),
           Padding(
@@ -72,8 +145,52 @@ class _CommunityScreenState extends State<CommunityScreen> {
                 onPressed: () {},
               ),
             ],
-          )
+          ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildChat(Map<String, dynamic> chat) {
+    return ListTile(
+      leading: CircleAvatar(
+        backgroundImage: AssetImage(chat['profilePic']),
+      ),
+      title: Text(chat['name']),
+      subtitle: Text(chat['message']),
+      trailing: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          if (chat['unreadMessages'] > 0)
+            CircleAvatar(
+              radius: 10,
+              backgroundColor: Colors.green,
+              child: Text(
+                chat['unreadMessages'].toString(),
+                style: TextStyle(color: Colors.white, fontSize: 12),
+              ),
+            ),
+          if (chat['unreadMessages'] == 0) Text(chat['lastSeen']),
+        ],
+      ),
+      onTap: () {
+        // Navigate to chat details screen
+      },
+    );
+  }
+
+  Widget _buildMakeADifferenceSection(
+      String title, IconData icon, String content) {
+    return Card(
+      margin: EdgeInsets.all(10.0),
+      child: ListTile(
+        leading: Icon(icon, size: 40),
+        title: Text(title,
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        subtitle: Text(content),
+        onTap: () {
+          // Handle tap if needed
+        },
       ),
     );
   }
@@ -103,8 +220,41 @@ class _CommunityScreenState extends State<CommunityScreen> {
                 return _buildPost(_posts[index]);
               },
             ),
-            Center(child: Text('Chat with other hikers - Coming Soon')),
-            Center(child: Text('Think and Make a Difference - Coming Soon')),
+            ListView.builder(
+              itemCount: _chats.length,
+              itemBuilder: (context, index) {
+                return _buildChat(_chats[index]);
+              },
+            ),
+            ListView(
+              children: <Widget>[
+                _buildMakeADifferenceSection(
+                  'Donate',
+                  Icons.volunteer_activism,
+                  'Support trail maintenance and preservation efforts by donating.',
+                ),
+                _buildMakeADifferenceSection(
+                  'Help',
+                  Icons.help_outline,
+                  'Find out how you can volunteer your time to assist on the trails.',
+                ),
+                _buildMakeADifferenceSection(
+                  'Emergency',
+                  Icons.warning,
+                  'Important emergency contacts and procedures for hikers.',
+                ),
+                _buildMakeADifferenceSection(
+                  'Suggest Information about Trails',
+                  Icons.info_outline,
+                  'Share your knowledge and experiences about different trails.',
+                ),
+                _buildMakeADifferenceSection(
+                  'Update Weather Conditions',
+                  Icons.cloud,
+                  'Provide real-time weather updates to keep hikers informed.',
+                ),
+              ],
+            ),
           ],
         ),
       ),
