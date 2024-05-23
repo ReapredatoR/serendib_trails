@@ -107,13 +107,7 @@ class TrailListScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'Trails List',
-          style: TextStyle(
-            fontSize: 20,
-            color: Colors.black, // Change color to black
-          ),
-        ),
+        title: Text('Trails List'),
         backgroundColor: Colors.white,
       ),
       body: ListView.builder(
