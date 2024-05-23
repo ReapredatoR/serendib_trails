@@ -31,8 +31,8 @@ class _CommunityScreenState extends State<CommunityScreen> {
 
   final List<Map<String, dynamic>> _chats = [
     {
-      'profilePic': 'lib/images/profile1.jpg',
-      'name': 'Hiker Joe',
+      'profilePic': 'lib/images/profile1.png',
+      'name': 'Hasini',
       'message': 'Are we meeting at the trailhead?',
       'unreadMessages': 0,
       'lastSeen': '2 hours ago'
