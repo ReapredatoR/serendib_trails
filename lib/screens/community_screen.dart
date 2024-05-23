@@ -244,7 +244,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
                   'Important emergency contacts and procedures for hikers.',
                 ),
                 _buildMakeADifferenceSection(
-                  'Suggest Information about Trails',
+                  'Suggestions',
                   Icons.info_outline,
                   'Share your knowledge and experiences about different trails.',
                 ),
