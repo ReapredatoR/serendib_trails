@@ -31,71 +31,57 @@ class _CommunityScreenState extends State<CommunityScreen> {
 
   final List<Map<String, dynamic>> _chats = [
     {
-      'profilePic': 'lib/images/profile1.png',
-      'name': 'Hasini',
+      'profilePic': 'lib/images/profile1.jpg',
+      'name': 'Kanishka',
       'message': 'Are we meeting at the trailhead?',
       'unreadMessages': 0,
       'lastSeen': '2 hours ago'
     },
     {
       'profilePic': 'lib/images/profile2.jpg',
-      'name': 'TrailBlazer Sue',
+      'name': 'Ravindu',
       'message': 'I saw an amazing waterfall!',
       'unreadMessages': 3,
       'lastSeen': 'just now'
     },
     {
       'profilePic': 'lib/images/profile3.jpg',
-      'name': 'Mountain Mike',
+      'name': 'Nadeeja',
       'message': 'When is our next hike?',
       'unreadMessages': 1,
       'lastSeen': '1 hour ago'
     },
     {
       'profilePic': 'lib/images/profile4.jpg',
-      'name': 'Adventure Amy',
+      'name': 'Kaweesha',
       'message': 'Check out these photos!',
       'unreadMessages': 0,
       'lastSeen': '30 mins ago'
     },
     {
       'profilePic': 'lib/images/profile5.jpg',
-      'name': 'Nature Nate',
+      'name': 'Sevinik',
       'message': 'The trail was tough but worth it!',
       'unreadMessages': 5,
       'lastSeen': '10 mins ago'
     },
     {
       'profilePic': 'lib/images/profile6.jpg',
-      'name': 'Hiker Hannah',
-      'message': 'I loved the sunrise view!',
-      'unreadMessages': 2,
-      'lastSeen': '3 hours ago'
-    },
-    {
-      'profilePic': 'lib/images/profile7.jpg',
-      'name': 'Wanderer Will',
+      'name': 'Bakka Aiya',
       'message': 'Anyone up for a night hike?',
       'unreadMessages': 4,
       'lastSeen': 'yesterday'
     },
     {
-      'profilePic': 'lib/images/profile8.jpg',
-      'name': 'Explorer Eva',
+      'profilePic': 'lib/images/profile7.jpg',
+      'name': 'Mayantha',
       'message': 'The weather was perfect today!',
       'unreadMessages': 0,
       'lastSeen': '5 hours ago'
     },
     {
-      'profilePic': 'lib/images/profile9.jpg',
-      'name': 'Rover Rick',
-      'message': 'The trail is closed next week.',
-      'unreadMessages': 3,
-      'lastSeen': '2 days ago'
-    },
-    {
-      'profilePic': 'lib/images/profile10.jpg',
-      'name': 'Hiker Helen',
+      'profilePic': 'lib/images/profile8.jpg',
+      'name': 'Hasini',
       'message': 'Looking forward to the next adventure!',
       'unreadMessages': 0,
       'lastSeen': 'yesterday'

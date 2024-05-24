@@ -112,6 +112,22 @@ class _TrailListScreenState extends State<TrailListScreen>
 
   final List<Trail> _trendingTrails = [
     Trail(
+      name: "Horton Plains National Park",
+      rating: 4.7,
+      length: 9.5,
+      time: "3-4 hours",
+      difficulty: "Moderate",
+      additionalInfo: "World's End viewpoint, diverse landscape",
+    ),
+    Trail(
+      name: "Knuckles Mountain Range",
+      rating: 4.6,
+      length: 60, // Average of the range
+      time: "3-5 days",
+      difficulty: "Difficult",
+      additionalInfo: "Rugged peaks, diverse wildlife, hidden waterfalls",
+    ),
+    Trail(
       name: "Ella Rock",
       rating: 4.5,
       length: 4,
@@ -119,6 +135,14 @@ class _TrailListScreenState extends State<TrailListScreen>
       difficulty: "Moderate",
       additionalInfo: "Panoramic views of Ella Gap, tea plantations",
     ),
+    Trail(
+      name: "Mini World's End",
+      rating: 4.3,
+      length: 6,
+      time: "2-3 hours",
+      difficulty: "Moderate",
+      additionalInfo: "Similar views to World's End, less crowded",
+    )
   ];
 
   @override
