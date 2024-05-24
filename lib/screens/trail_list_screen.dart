@@ -162,7 +162,7 @@ class _TrailListScreenState extends State<TrailListScreen>
           indicatorColor: Colors.green, // Set indicator color to green
           labelColor: Colors.green, // Set selected tab text color to green
           unselectedLabelColor: Colors.black87, // Set unselected tab text color
-          tabs: [
+          tabs: const [
             Tab(text: 'Top 10 Trails'),
             Tab(text: 'Trending Trails'),
             Tab(text: 'Add Trail'),

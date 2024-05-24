@@ -189,6 +189,10 @@ class _CommunityScreenState extends State<CommunityScreen> {
         appBar: AppBar(
           title: Text('Community'),
           bottom: TabBar(
+            indicatorColor: Colors.green, // Set indicator color to green
+            labelColor: Colors.green, // Set selected tab text color to green
+            unselectedLabelColor:
+                Colors.black87, // Set unselected tab text color
             onTap: _onItemTapped,
             tabs: <Widget>[
               Tab(text: 'Posts'),
