@@ -6,21 +6,11 @@ class MapScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(kToolbarHeight), // Set preferred size
-        child: AppBar(
-          backgroundColor: Colors.green,
-          title: null, // Remove the title
-          centerTitle: true,
-          elevation: 0, // Remove app bar elevation
-        ),
-      ),
       body: Stack(
         children: [
           FlutterMap(
             options: MapOptions(
-              center: LatLng(
-                  6.8090, 80.4993), // Replace with actual trail coordinates
+              center: LatLng(6.8090, 80.4993),
               zoom: 13.0,
             ),
             children: [
