@@ -68,7 +68,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
     {
       'profilePic': 'lib/images/profile6.jpg',
       'name': 'Bakka Aiya',
-      'message': 'Anyone up for a night hike?',
+      'message': 'Up for a night hike?',
       'unreadMessages': 4,
       'lastSeen': 'yesterday'
     },
