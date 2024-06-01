@@ -174,9 +174,7 @@ class _CommunityScreenState extends State<CommunityScreen> {
         title: Text(title,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         subtitle: Text(content),
-        onTap: () {
-          // Handle tap if needed
-        },
+        onTap: () {},
       ),
     );
   }

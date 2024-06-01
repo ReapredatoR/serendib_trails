@@ -200,7 +200,6 @@ class _TrailListScreenState extends State<TrailListScreen>
       child: ElevatedButton(
         onPressed: () {
           // Navigate to trail details screen
-          // You can implement this navigation here
         },
         style: ElevatedButton.styleFrom(
           elevation: 4,

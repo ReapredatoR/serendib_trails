@@ -32,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
             Padding(
               padding: EdgeInsets.all(8.0),
               child: Image.asset(
-                'lib/images/Logo.png', // Change this to your logo path
+                'lib/images/Logo.png',
                 height: 30,
                 width: 30,
                 fit: BoxFit.contain,
